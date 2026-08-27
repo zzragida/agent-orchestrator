@@ -1,0 +1,23 @@
+name: openship-agent-lab
+on:
+  push:
+    paths:
+      - 'experiments/nu-openship-agent-lab/**'
+      - '.github/workflows/openship-agent-lab.yml'
+  pull_request:
+    paths:
+      - 'experiments/nu-openship-agent-lab/**'
+      - '.github/workflows/openship-agent-lab.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: experiments/nu-openship-agent-lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm test
+      - run: docker build -t nu-openship-agent-lab:test .
