@@ -1,0 +1,7 @@
+{
+  "name": "nu-openship-agent-lab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {"start": "node app/server.js", "test": "node tests/smoke.js"},
+  "engines": {"node": ">=20"}
+}
